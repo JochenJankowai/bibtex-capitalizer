@@ -35,8 +35,8 @@ def capitalizeTheWordsThatShouldBeCapital(line):
 
         retLine += " " + word
 
-    # At this point, we would like to identify semicolons and capitalize the words after
-    while retLine.find(': ') > 0:
+    # At this point, we would like to identify semicolons and capitalize the words after. For now we assume that only one : occurs
+    if retLine.find(': ') > 0:
         splits = retLine.split(': ')
         retLine = splits[0] + ': ' + splits[1].capitalize()
 
