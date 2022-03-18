@@ -8,6 +8,12 @@ dos = ["2d", "3d", "4d", "lic", "mri", "dlr", "airs",
        "mipas", "cfg", "cpu", "gpu", "apu", "b2lic", "uflic"]
 
 
+def substituteQuotationMarks(line):
+    line = line.replace('"', "{", 1)
+    line = line.replace('"', "}", 1)
+    return line
+
+
 def capitalize(word):
     output = ""
     if word.find('-') > 0:
@@ -65,6 +71,9 @@ for line in content:
 
     line = line.lstrip()
     line = line.rstrip()
+
+    line = substituteQuotationMarks(line)
+
     tag = line.split(" ")[0]
 
     if tag.lower() == "title":
